@@ -1,9 +1,7 @@
 * text=auto
 
 *.php diff=php
-*.blade.php diff=html
-*.css diff=css
-*.html diff=html
+
 *.md diff=markdown
 
 /.github export-ignore
