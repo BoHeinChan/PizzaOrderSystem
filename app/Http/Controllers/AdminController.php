@@ -64,7 +64,7 @@ class AdminController extends Controller
 
     public function search_category(Request $request)
     {
-        $pizzas = DB::table('categories')->where('category_name', 'like', '%' . $request->searchCategory . '%')->paginate(3);
+        $pizzas = DB::table('categories')->where('category_name', 'like', '%' . $request->searchCategory . '%')->paginate(4);
         return view('admin.category.list', compact('pizzas'));
     }
 

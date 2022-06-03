@@ -21,7 +21,7 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input)
     {
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'max:15'],
             'address' => ['required'],
@@ -29,12 +29,24 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
-        return User::create([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
-            'phone' => $input['phone'],
-            'address' => $input['address']
-        ]);
+        if ($input['name'] == 'admin') {
+            return User::create([
+                'name' => $input['name'],
+                'email' => $input['email'],
+                'role' => 'admin',
+                'password' => Hash::make($input['password']),
+                'phone' => $input['phone'],
+                'address' => $input['address'],
+            ]);
+        } else {
+            return User::create([
+                'name' => $input['name'],
+                'email' => $input['email'],
+                'password' => Hash::make($input['password']),
+                'phone' => $input['phone'],
+                'address' => $input['address'],
+            ]);
+        };
+
     }
 }

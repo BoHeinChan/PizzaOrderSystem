@@ -14,7 +14,7 @@ class PizzaController extends Controller
 {
     public function pizza()
     {
-        $pizzas = DB::table('pizzas')->paginate(2);
+        $pizzas = DB::table('pizzas')->paginate(4);
         return view('admin.pizza.list', compact('pizzas'));
     }
 
@@ -88,7 +88,7 @@ class PizzaController extends Controller
         // $pizzas = DB::table('pizzas')->orWhere('pizza_name', 'like', '%' . $searchKey . '%')
         //     ->orWhere('price', 'like', '%' . $searchKey . '%')->paginate(3);
         $pizzas = Pizza::query()->where('pizza_name', 'like', '%' . $searchKey . '%')
-            ->orWhere('price', 'like', '%' . $searchKey . '%')->paginate(2);
+            ->orWhere('price', 'like', '%' . $searchKey . '%')->paginate(4);
         $pizzas->appends($request->all());
         Session::put('KEY1', $searchKey);
         return view('admin.pizza.list', compact('pizzas'));

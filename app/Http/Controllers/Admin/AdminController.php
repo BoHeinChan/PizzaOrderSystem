@@ -79,14 +79,14 @@ class AdminController extends Controller
 
     public function contact_list()
     {
-        $datas = Contact::query()->paginate(3);
+        $datas = Contact::query()->paginate(4);
         return view('admin.contact', compact('datas'));
     }
 
     public function search_contact(Request $request)
     {
         $search_key = $request->table_search;
-        $datas = Contact::query()->orWhere('name', 'like', '%' . $search_key . '%')->orWhere('email', 'like', '%' . $search_key . '%')->orWhere('message', 'like', '%' . $search_key . '%')->paginate(3);
+        $datas = Contact::query()->orWhere('name', 'like', '%' . $search_key . '%')->orWhere('email', 'like', '%' . $search_key . '%')->orWhere('message', 'like', '%' . $search_key . '%')->paginate(4);
         $datas->appends($request->all());
         return view('admin.contact', compact('datas'));
     }

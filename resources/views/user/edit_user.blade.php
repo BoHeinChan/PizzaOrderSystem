@@ -46,7 +46,7 @@
                                                 <div class="form-group row">
                                                     <label for="inputName" class="col-sm-2 col-form-label">Phone</label>
                                                     <div class="col-sm-10">
-                                                        <input type="number" disabled
+                                                        <input type="text" disabled
                                                             class="form-control @error('phone') is-invalid @enderror"
                                                             id="inputName" name="phone" value="{{ $userData->phone }}"
                                                             placeholder="phone number">

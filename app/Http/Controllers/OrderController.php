@@ -21,7 +21,7 @@ class OrderController extends Controller
             ->orWhere('orders.order_id', 'like', '%' . $request->table_search . '%')
             ->orWhere('users.name', 'like', '%' . $request->table_search . '%')
             ->orWhere('pizzas.pizza_name', 'like', '%' . $request->table_search . '%')
-            ->select('orders.order_id', 'users.name', 'pizzas.pizza_name', 'orders.payment_status', 'orders.count', 'orders.order_time')->paginate(2);
+            ->select('orders.order_id', 'users.name', 'pizzas.pizza_name', 'orders.payment_status', 'orders.count', 'orders.order_time')->paginate(4);
         $orders->appends($request->all());
         Session::put('KEY4', $KEY4);
         return view('admin.order_list', compact('orders'));
