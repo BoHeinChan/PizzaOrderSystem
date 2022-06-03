@@ -10,10 +10,11 @@
                 <div class="row mt-4">
                     <div class="col-12">
                         @if (Session::has('successupate'))
-                            <div class="alert alert-info alert-dismissible fade show my-2 mx-2" role="alert">
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 {{ Session::get('successupate') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                         @endif
                         <div class="card">
@@ -25,6 +26,10 @@
                                 <h3 class="card-title">
                                     <a href="{{ route('admin.admin_list') }}"><button
                                             class="btn btn-sm btn-outline-dark">Admin List</button></a>
+                                </h3>
+                                <h3 class="card-title">
+                                    <a href="{{ route('admin.admin_csv') }}" class="btn btn-sm mx-3 btn-primary">Download
+                                        CSV</a>
                                 </h3>
                                 <div class="card-tools">
                                     <form action="{{ route('admin.search_admin') }}" method="POST">

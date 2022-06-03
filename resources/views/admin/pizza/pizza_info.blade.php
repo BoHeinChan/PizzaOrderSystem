@@ -12,8 +12,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ route('admin.add_pizza') }}"><button class="btn btn-dark"><i
-                                            class="fas fa-solid fa-plus"></i></button></a>
+                                <a href="{{ route('admin.pizza') }}"><button class="btn btn-dark"> <i
+                                            class="fa fa-arrow-left" aria-hidden="true"></i></button></a>
 
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm" style="width: 150px;">
@@ -37,10 +37,18 @@
                                                 class="img-thumbnail" style="width: 20rem">
                                         </div>
                                         <div class="">
-                                            <p>Name: {{ $infos->pizza_name }}</p>
-                                            <p>Price: {{ $infos->price }}Kyats</p>
-                                            <p>Publish Status: {{ $infos->publish_status }}</p>
-                                            <p>Buy One get One: {{ $infos->buy_one_get_one_status }}</p>
+                                            <p class="fs-4">Name: {{ $infos->pizza_name }}</p>
+                                            <p class="fs-4">Price: {{ $infos->price }}Kyats</p>
+                                            @if ($infos->publish_status == 0)
+                                                <p class="fs-4">Publish Status: No</p>
+                                            @else
+                                                <p class="fs-4">Publish Status: Yes</p>
+                                            @endif
+                                            @if ($infos->buy_one_get_one_status == 0)
+                                                <p class="fs-4">Publish Status: No</p>
+                                            @else
+                                                <p class="fs-4">Publish Status: Yes</p>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

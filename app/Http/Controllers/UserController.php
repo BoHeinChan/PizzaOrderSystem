@@ -110,7 +110,6 @@ class UserController extends Controller
             'count' => $request->count,
             'order_time' => Carbon::now(),
         ]);
-
         return back()->with(['success_order' => 'Order successful and pizza will get in ' . $pizzaDetails->waiting_time * $request->count . ' minutes']);
     }
 }

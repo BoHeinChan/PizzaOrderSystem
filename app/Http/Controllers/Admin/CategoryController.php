@@ -32,13 +32,13 @@ class CategoryController extends Controller
         Category::create([
             'category_name' => $request->category_name,
         ]);
-        return redirect()->route('admin.category')->with('success', 'Added category...');
+        return redirect()->route('admin.category')->with('success', 'Successfully added category!');
     }
 
     public function delete_category($id)
     {
         Category::where('category_id', $id)->delete();
-        return back()->with('successd', "Deleted category...");
+        return back()->with('successd', "Successfully deleted category!");
     }
 
     public function edit_category($id)
@@ -55,7 +55,7 @@ class CategoryController extends Controller
         Category::where('category_id', $id)->update([
             'category_name' => $request->category_name,
         ]);
-        return redirect()->route('admin.category')->with('successu', 'Updated category successfully...');
+        return redirect()->route('admin.category')->with('successu', 'Successfully updated category!');
     }
 
     public function search_category(Request $request)
@@ -77,7 +77,7 @@ class CategoryController extends Controller
         if (Session::has('KEY')) {
             $searchCategory = Session::get('KEY');
             $categories = Category::leftJoin('pizzas', 'pizzas.category_id', 'categories.category_id')->select('categories.*', DB::raw('COUNT(pizzas.category_id) as count'))->groupBy('categories.category_id')->where('category_name', 'like', '%' . $searchCategory . '%')->get();
-
+            Session::forget('KEY');
         } else {
             $categories = Category::get();
 

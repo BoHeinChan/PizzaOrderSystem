@@ -10,8 +10,8 @@
             <div class="container-fluid">
                 <div class="row mt-4">
                     <div class="col-12">
-                        <a href="{{ route('admin.category') }}" class="text-decoration-none text-black"><i
-                                class="fas fa-solid fa-arrow-left me-2"></i>Back</a>
+                        <a href="{{ route('admin.category') }}"><button class="btn btn-dark mb-1"> <i
+                                    class="fa fa-arrow-left" aria-hidden="true"></i></button></a>
                         <div class="card">
                             <div class="card-header text-center">
                                 <p class="fw-bold fs-4 m-0">{{ $pizzas[0]->category_name }}</p>
@@ -27,7 +27,6 @@
                                             <th>Price</th>
                                             <th>Publish Status</th>
                                             <th>Buy 1 Get 1 Status</th>
-                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -58,16 +57,14 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <div class="mx-2 my-3">{{ $pizzas->links() }}</div>
                             </div>
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
+                        <div class="mx-2 my-3">{{ $pizzas->links() }}</div>
                     </div>
                 </div>
-
             </div>
-
     </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

@@ -7,6 +7,8 @@
                 <div class="row mt-4">
                     <div class="col-8 offset-3 mt-5">
                         <div class="col-md-9">
+                            <a href="{{ route('admin.admin_list') }}"><button class="btn btn-dark mb-1"> <i
+                                        class="fa fa-arrow-left" aria-hidden="true"></i></button></a>
                             <div class="card">
                                 <div class="card-header p-2">
                                     <legend class="text-center">Edit Role</legend>

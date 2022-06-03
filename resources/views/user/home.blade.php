@@ -98,12 +98,11 @@
                             </div>
                         @endforeach
                     @else
-                        <h2 class="font-weight-light text-danger mt-5 text-center">There are no pizzas in such category!!!
-                        </h2>
+                        <h2 class="font-weight-light text-danger mt-5 text-center">There are no pizzas!</h2>
                     @endif
                 </div>
-                <div class="mx-2 my-3">{{ $pizzas->links() }}</div>
             </div>
+            <div class="mx-2 my-3">{{ $pizzas->links() }}</div>
         </div>
     </div>
     <div class="text-center d-flex justify-content-center align-items-center" id="contact">

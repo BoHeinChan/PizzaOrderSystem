@@ -83,6 +83,7 @@ Route::controller(PizzaController::class)->group(function () {
                 Route::get('edit_pizza/{id}', 'edit_pizza')->name('edit_pizza');
                 Route::put('update_pizza/{id}', 'update_pizza')->name('update_pizza');
                 Route::get('search_pizza', 'search_pizza')->name('search_pizza');
+                Route::get('/pizza/csv', 'csv')->name('pizza_csv');
             });
         });
     });
@@ -100,6 +101,8 @@ Route::controller(User::class)->group(function () {
                 Route::post('update_admin/{id}', 'update_admin')->name('update_admin');
                 Route::post('search_user', 'search_user')->name('search_user');
                 Route::post('search_admin', 'search_admin')->name('search_admin');
+                Route::get('user/csv', 'csv')->name('user_csv');
+                Route::get('admin/csv', 'csv_admin')->name('admin_csv');
             });
         });
     });
@@ -127,6 +130,8 @@ Route::controller(OrderController::class)->group(function () {
         Route::name('order#')->group(function () {
             Route::middleware('admin')->group(function () {
                 Route::get('order_list', 'order_list')->name('order_list');
+                Route::get('search_order', 'search_order')->name('search_order');
+                Route::get('csv', 'csv')->name('csv');
             });
         });
     });
